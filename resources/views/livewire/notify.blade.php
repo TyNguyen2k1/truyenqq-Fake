@@ -30,10 +30,6 @@ $notifications = auth()
 
         </div>
     </div>
-    <script>
-        var urlNotification = '{{ route('user.markNotification') }}';
-
-    </script>
     <div class="notify center ">
         <i class="fas fa-envelope"></i>
         <div class="list-messages">
