@@ -20,6 +20,7 @@
                                     </figure>
                                     <div class="media-content">
                                         <h4>{{ $comic->name }}</h4>
+                                        <h5>{{ $comic->another_name }}</h5>
                                         <h6>Chương {{ $comic->chapters->count() -1 }}</h6>
                                     </div>
                                 </div>
