@@ -10,7 +10,7 @@
             @endif
             <div class="tile is-ancestor">
                 <div class="tile is-vertical is-parent">
-                    @if (!$items->first())
+                    @if ($items == null)
                         <div class="warning-list box">Xin lỗi, không tìm thấy kết quả nào!!</div>
                     @else
                         <x-front_end.comic-item :comics="$items" />
@@ -20,7 +20,9 @@
             <!-- /.list-stories -->
 
             <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-                {{ $items->links('vendor.pagination.custom') }}
+                @if ($items)
+                    {{ $items->links('vendor.pagination.custom') }}
+                @endif
             </nav>
         </div>
     </section>

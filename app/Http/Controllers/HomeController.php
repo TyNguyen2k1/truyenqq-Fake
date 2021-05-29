@@ -218,7 +218,7 @@ class HomeController extends Controller
     {
         $list_comic = json_decode($request->cookie('comics'));
 
-        $items = Comic::whereIn('id', $list_comic)->paginate($this->paginate);
+        $items = $list_comic ? Comic::whereIn('id', $list_comic)->orderByRaw('FIELD(id, '. implode(", " , $list_comic).')')->paginate($this->paginate) : null;
         $properties = array(
             'properties' => '',
             'name' => 'Lịch Sử Đọc Truyện',
