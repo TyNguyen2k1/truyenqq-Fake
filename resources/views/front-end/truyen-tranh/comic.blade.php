@@ -28,13 +28,14 @@
                 </ol>
             </div>
             <div class="block01">
-                <div class="left"><img src="{{ $comic->getFirstMediaUrl('comic', '190x247') }}" alt="{{ $comic->name }}" />
+                <div class="left"><img src="{{ $comic->getFirstMediaUrl('comic', '190x247') }}"
+                        alt="{{ $comic->name }}" />
                 </div>
                 <div class="center" itemscope="" itemtype="http://schema.org/Book">
                     <h1 itemprop="name">{{ $comic->name }}</h1>
                     <div class="txt">
-                        @if ($comic->another_name != "")
-                        <span class="info-item">Tên Khác: {{ $comic->another_name }}</span>
+                        @if ($comic->another_name != '')
+                            <span class="info-item">Tên Khác: {{ $comic->another_name }}</span>
                         @endif
                         <p class="info-item">Tác giả: <a class="org"
                                 href="{{ route('front-end.author', ['slug' => $comic->author->slug]) }}">{{ $comic->author->name }}</a>
@@ -46,7 +47,8 @@
                                     class="sp02 number-like">{{ $comic->statistical->number_of_likes }}</span></span>
                             <span class="sp01"><i class="fas fa-heart"></i> <span
                                     class="sp02">{{ $comic->statistical->number_of_followers }}</span></span>
-                            <span class="sp01"><i class="fas fa-eye"></i> <span class="sp02">{{ views($comic)->count() }}</span></span>
+                            <span class="sp01"><i class="fas fa-eye"></i> <span
+                                    class="sp02">{{ views($comic)->count() }}</span></span>
                         </div>
                     </div>
                     <ul class="list01">

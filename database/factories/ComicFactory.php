@@ -30,7 +30,7 @@ class ComicFactory extends Factory
             'another_name' => $this->faker->text($maxNbChars = 50),
             'slug' => Str::slug($name),
             'description' => $this->faker->text($maxNbChars = 300),
-            'author_id' => mt_rand(1,50),
+            'author_id' => mt_rand(1, 50),
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
         ];
@@ -57,8 +57,20 @@ class ComicFactory extends Factory
             $comic->categories()->attach($category);
 
             // them chap vào comic
-            for ($i = 0; $i < mt_rand(2, 5); $i++) {
-                $comic->chapters()->create()->addMediaFromUrl('https://source.unsplash.com/random/840x1200')
+            $n =  mt_rand(3, 6);
+            for ($i = 0; $i < $n; $i++) {
+                if ($i == $n - 1) {
+                    $chapter = \App\Models\Chapter::create([
+                        'comic_id' => $comic->id,
+                        'published_date' => $this->faker->dateTimeBetween($startDate = '+1 days', $endDate = '+3 days')
+                    ]);
+                } else {
+                    $chapter = \App\Models\Chapter::create([
+                        'comic_id' => $comic->id,
+                    ]);
+                }
+
+                $chapter->addMediaFromUrl('https://source.unsplash.com/random/840x1200')
                     ->toMediaCollection('chapter');
             }
 

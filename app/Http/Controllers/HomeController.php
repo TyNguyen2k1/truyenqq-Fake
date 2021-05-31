@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use App\Models\Author;
 use App\Models\Category;
+use App\Models\Chapter;
 use App\Models\Comment;
 use App\Models\Statistical;
 use Illuminate\Http\Request;
 use CyrildeWit\EloquentViewable\Support\Period;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -53,7 +55,15 @@ class HomeController extends Controller
         $comics_female = $this->comics_female->take(12)->get();
         $comics_male = $this->comics_male->take(12)->get();
         $popular_comics = Comic::orderByViews('desc', Period::pastDays(1))->take(5)->get();
-        return view('front-end.index', compact('comics', 'comics_male', 'comics_female', 'popular_comics'));
+        // $list_chapter_publishers = Chapter::whereDay('published_date', now()->format('d'))->distinct('comic_id')->take(6)->get();
+        $list_chapter_publishers = Chapter::
+            // select(DB::raw('count(*) as chapter_count, comic_id'))->
+            whereDate('published_date', '>', now())
+            // ->groupBy('comic_id')
+            ->take(6)
+            ->get();
+        // dd($list_chapter_publishers[0]->comic->count());
+        return view('front-end.index', compact('comics', 'comics_male', 'comics_female', 'popular_comics', 'list_chapter_publishers'));
     }
 
     // hien thi truyen theo the loai
@@ -218,7 +228,7 @@ class HomeController extends Controller
     {
         $list_comic = json_decode($request->cookie('comics'));
 
-        $items = $list_comic ? Comic::whereIn('id', $list_comic)->orderByRaw('FIELD(id, '. implode(", " , $list_comic).')')->paginate($this->paginate) : null;
+        $items = $list_comic ? Comic::whereIn('id', $list_comic)->orderByRaw('FIELD(id, ' . implode(", ", $list_comic) . ')')->paginate($this->paginate) : null;
         $properties = array(
             'properties' => '',
             'name' => 'Lịch Sử Đọc Truyện',

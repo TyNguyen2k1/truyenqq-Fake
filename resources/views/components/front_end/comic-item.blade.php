@@ -2,7 +2,7 @@
     @foreach ($comics as $comic)
         <li>
             <div class="story-item">
-                <a href="{{ route('comic.detail', ['slug' =>$comic->slug]) }}" title="{{ $comic->name }}"><img
+                <a href="{{ route('comic.detail', ['slug' => $comic->slug]) }}" title="{{ $comic->name }}"><img
                         class="story-cover lazy_cover" src="{{ $comic->getFirstMediaUrl('comic', '190x247') }}"
                         alt="{{ $comic->name }}"></a>
                 <div class="top-notice">
@@ -14,7 +14,8 @@
                         title="{{ $comic->name }}">{{ $comic->name }}</a></h3>
                 <div class="episode-book"><a
                         href="{{ route('comic.read', ['slug' => $comic->slug, 'chap' => $comic->chapters->count() - 1]) }}">
-                        Chương {{ $comic->chapters->count() - 1 }} {{-- lay tong tru 1 = so luong chap hien tai --}}
+                        Chương {{ $comic->chapters->count() - 1 }}
+                        {{-- lay tong tru 1 = so luong chap hien tai --}}
                     </a></div>
                 <div class="more-info">
                     <div class="title-more">{{ $comic->name }}</div>

@@ -34,7 +34,7 @@ class Comic extends Model implements HasMedia, Viewable
     // mối quan hệ 1 nhiều với bảng chapter
     public function chapters()
     {
-        return $this->hasMany(Chapter::class);
+        return $this->hasMany(Chapter::class)->where('published_date', '<=', now());
     }
 
     // mối quan hệ ngược lại với bảng author

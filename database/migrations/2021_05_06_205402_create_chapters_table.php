@@ -20,6 +20,7 @@ class CreateChaptersTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('detail')->default('');
+            $table->dateTime('published_date')->default(now());
             $table->timestamps();
         });
     }

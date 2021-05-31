@@ -12,7 +12,9 @@ class Chapter extends Model implements HasMedia
     use InteractsWithMedia;
     use HasFactory;
 
-    protected $fillable = ['comic_id'];
+    protected $dates = ['published_date'];
+
+    protected $fillable = ['comic_id', 'published_date'];
 
     // date time format
     // public function getCreatedAtAttribute($value)
