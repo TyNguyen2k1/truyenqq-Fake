@@ -60,7 +60,8 @@
                                             </div>
                                             <div class="column">
                                                 <ul class="mega-list">
-                                                    <li><a href="{{ route('front-end.top_thang') }}">Top Tháng</a></li>
+                                                    <li><a href="{{ route('front-end.top_thang') }}">Top Tháng</a>
+                                                    </li>
                                                     <li><a href="{{ route('front-end.top_loves') }}">Yêu
                                                             Thích</a></li>
                                                 </ul>
@@ -87,16 +88,13 @@
                     </div>
                     <a href="{{ route('front-end.comics_female') }}" class="navbar-item">Con Gái</a>
                     <a href="{{ route('front-end.comics_male') }}" class="navbar-item">Con Trai</a>
-                    <a href="http://truyenqq.com/tim-kiem-nang-cao.html" class="navbar-item">Tìm Truyện</a>
+                    <a href="javascript:void(0)" class="navbar-item">Tìm Truyện</a>
                     <a rel="nofollow" href="{{ route('front-end.history') }}" class="navbar-item">Lịch Sử</a>
                     <a rel="nofollow" href="{{ route('user.follow_list') }}" class="navbar-item">Theo
                         Dõi</a>
-                    <a rel="nofollow" href="https://www.facebook.com/groups/438911163131883" target="_blank"
-                        class="navbar-item">Thảo Luận</a>
-                    <a rel="nofollow" href="https://www.facebook.com/truyenqq.page" target="_blank"
-                        class="navbar-item">Fanpage</a>
-                    <a rel="nofollow" href="https://truyenqq.com/tin-tuc/tuyen-nhan-su.html" target="_blank"
-                        class="navbar-item">Tuyển Nhân Sự</a>
+                    <a rel="nofollow" href="javascript:void(0)" class="navbar-item">Thảo Luận</a>
+                    <a rel="nofollow" href="javascript:void(0)" class="navbar-item">Fanpage</a>
+                    <a rel="nofollow" href="javascript:void(0)" class="navbar-item">Tuyển Nhân Sự</a>
 
                 </div>
             </div>
