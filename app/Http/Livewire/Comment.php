@@ -13,7 +13,7 @@ class Comment extends Component
     public $comic;
     public $all_comments_count;
 
-    public $commentReplyingTo;
+    public $commentReplyingTo = null;
     public $reply_name = '';
     public $email;
     public $name;
@@ -66,7 +66,7 @@ class Comment extends Component
         $comment->body = $this->reply_name . nl2br($this->comment);
         $comment->save();
 
-        if ($this->commentReplyingTo->user != auth()->user() ?? false ) {
+        if ($this->commentReplyingTo->user ?? false != auth()->user() ?? false ) {
             event(new \App\Events\ReplyComment($comment));
         }
 
