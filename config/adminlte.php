@@ -65,7 +65,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => true,
-    'dashboard_url' => '',
+    'dashboard_url' => 'admin.dashboard',
     'logout_url' => 'admin.logout',
     'login_url' => 'admin.login',
     'register_url' => '',
@@ -245,50 +245,28 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => '#',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => '#',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'QUẢN LÝ'],
         [
             'text'    => 'Thể loại',
+            'route' => 'admin.category.index',
             'icon'    => 'fas fa-fw fa-th',
-            'submenu' => [
-                [
-                    'text' => 'Danh sách thể loại',
-                    'route' => 'admin.category.index',
-                ],
-                [
-                    'text'    => 'Thêm thể loại',
-                    'route' => 'admin.category.create',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
         ],
         [
             'text'    => 'Tác giả',
-            'icon'    => 'fas fa-fw fa-th',
-            'submenu' => [
-                [
-                    'text' => 'Danh sách tác giả',
-                    'route' => 'admin.author.index',
-                ],
-                [
-                    'text' => 'Thêm mới tác giả',
-                    'route' => 'admin.author.create',
-                ],
-            ],
+            'route' => 'admin.author.index',
+            'icon'    => 'fas fa-fw fa-address-book',
         ],
         [
             'text'    => 'Truyện',
-            'icon'    => 'fas fa-fw fa-th',
+            'icon'    => 'fas fa-fw fa-book',
             'submenu' => [
                 [
                     'text' => 'Danh sách truyện',
@@ -555,6 +533,21 @@ return [
                     'type' => 'js',
                     'asset' => true,
                     'location' => 'public\vendor\jsgrid\jsgrid.min.js',
+                ],
+            ],
+        ],
+        'toastr' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor\toastr\toastr.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor\toastr\toastr.min.js',
                 ],
             ],
         ],

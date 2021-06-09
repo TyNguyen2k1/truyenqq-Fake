@@ -18,7 +18,7 @@ class FollowButton extends Component
 
     public function follow()
     {
-        if (Auth::user()->comic()->find($this->comic->id)) {
+        if (Auth::user()->comics()->find($this->comic->id)) {
             DB::delete('delete from comics_user where comic_id = ? and user_id = ? ', [$this->comic->id, Auth::user()->id]);
             Statistical::find($this->comic->id)->update([
                 'number_of_followers' => DB::raw('number_of_followers-1')
@@ -26,7 +26,7 @@ class FollowButton extends Component
             $this->isFollow = false;
             return back();
         }
-        Auth::user()->comic()->attach($this->comic->id);
+        Auth::user()->comics()->attach($this->comic->id);
         $this->isFollow = true;
         Statistical::find($this->comic->id)->update([
             'number_of_followers' => DB::raw('number_of_followers+1')

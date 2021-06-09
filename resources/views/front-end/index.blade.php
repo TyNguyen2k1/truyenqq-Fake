@@ -20,7 +20,7 @@
                 <div class="caption" id="list-update"><a href="http://truyenqq.com/truyen-moi-cap-nhat.html"><span
                             class="starts-icon"></span>Truyện mới cập nhật</a></div>
 
-                <x-front_end.comic-item :comics="$comics" />
+                <x-frontend.comic-item :comics="$comics" />
                 {{-- {{ $comics->links('vendor.pagination.custom') }} --}}
 
                 <!-- /.list-stories -->
@@ -35,7 +35,7 @@
                             class="female-icon"></span>Truyện con gái</a></div>
                 <div class="tile is-ancestor">
                     <div class="tile is-vertical is-parent">
-                        <x-front_end.comic-item :comics="$comics_female" />
+                        <x-frontend.comic-item :comics="$comics_female" />
                         <!-- /.list-stories -->
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             class="male-icon"></span>Truyện con trai</a></div>
                 <div class="tile is-ancestor">
                     <div class="tile is-vertical is-parent">
-                        <x-front_end.comic-item :comics="$comics_male" />
+                        <x-frontend.comic-item :comics="$comics_male" />
 
                         <!-- /.list-stories -->
                     </div>

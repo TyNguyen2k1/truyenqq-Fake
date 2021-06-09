@@ -4,7 +4,7 @@ $notifications = auth()
     ->notifications->sortBy('read_at');
 @endphp
 <div class="top-buttons has-login">
-    <div class="notify home smp"><a href="{{ route('/') }}"><i class="fas fa-home"></i></a></div>
+    <div class="notify home smp"><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></div>
     <div class="notify center {{ auth()->user()->unreadNotifications->count() > 0 ? 'unread' : '' }} " data-id="1">
         <i class="fas fa-bell"></i>
         <div class="list-messages">

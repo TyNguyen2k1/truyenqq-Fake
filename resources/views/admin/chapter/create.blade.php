@@ -7,7 +7,7 @@
 @stop
 @section('content')
     <div class="col-md-12">
-        <x-admin-pace></x-admin-pace>
+        <x-admin.admin-pace/>
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Thêm chương mới</h3>
@@ -41,6 +41,22 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date and time:</label>
+                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                            <input type="text" name="published_date" class="form-control datetimepicker-input"
+                                data-target="#reservationdatetime">
+                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                            @error('published_date')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
                     <!-- /.form-group -->
                     <input type="submit" value="Tạo mới truyện" class="btn btn-success">
@@ -92,22 +108,6 @@
     <script src="{{ asset('/vendor/dropzone/min/dropzone.min.js') }}"></script>
     <!-- bs-custom-file-input -->
     <script src="{{ asset('/vendor/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    {{-- <script src="../../dist/js/demo.js"></script> --}}
-
-    <script>
-        $(function() {
-            //Initialize Select2 Elements
-            $('.select2').select2()
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
-        })
-        $(function() {
-            bsCustomFileInput.init();
-        });
-
-    </script>
+    <!-- admin.js -->
+    <script src="{{ mix('js/admin.js') }}" defer></script>
 @stop

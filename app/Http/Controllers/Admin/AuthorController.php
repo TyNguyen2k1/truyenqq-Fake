@@ -18,8 +18,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $authors = Author::latest()->paginate(10);
-        return view('admin.author.index', compact('authors'));
+        // $authors = Author::latest()->paginate(10);
+        return view('admin.author.index');
     }
 
     /**

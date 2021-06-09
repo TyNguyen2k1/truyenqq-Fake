@@ -1,11 +1,10 @@
 <?php
 
-namespace App\View\Components\front_end;
+namespace App\View\Components\frontend;
 
-use App\Models\Comic;
 use Illuminate\View\Component;
 
-class ComicItem extends Component
+class comicItem extends Component
 {
     /**
      * Danh sach truyen
@@ -15,21 +14,13 @@ class ComicItem extends Component
     public $comics;
 
     /**
-     * co phai la danh sach theo doi
-     *
-     * @var \App\Models\Comic
-     */
-    public $isLibrary;
-
-    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($comics, $isLibrary)
+    public function __construct($comics)
     {
         $this->comics = $comics;
-        $this->isLibrary = $isLibrary;
     }
 
     /**
@@ -39,6 +30,6 @@ class ComicItem extends Component
      */
     public function render()
     {
-        return view('components.front_end.comic-item');
+        return view('components.frontend.comic-item');
     }
 }

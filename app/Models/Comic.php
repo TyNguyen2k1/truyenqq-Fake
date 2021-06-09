@@ -31,10 +31,24 @@ class Comic extends Model implements HasMedia, Viewable
         return $this->belongsToMany(Category::class, 'comic_categories', 'comic_id', 'category_id')->orderBy('name')->withTimestamps();
     }
 
-    // mối quan hệ 1 nhiều với bảng chapter
+    /**
+     * Get all of the chapters for the Comic
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function chapters()
     {
         return $this->hasMany(Chapter::class)->where('published_date', '<=', now());
+    }
+
+    /**
+     * Get all of the chapters for the Comic
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function chaptersAll()
+    {
+        return $this->hasMany(Chapter::class);
     }
 
     // mối quan hệ ngược lại với bảng author

@@ -13,7 +13,7 @@
                     @if ($items == null)
                         <div class="warning-list box">Xin lỗi, không tìm thấy kết quả nào!!</div>
                     @else
-                        <x-front_end.comic-item :comics="$items" />
+                        <x-frontend.comic-item :comics="$items" />
                     @endif
                 </div>
             </div>

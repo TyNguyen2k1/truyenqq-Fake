@@ -14,7 +14,7 @@
             <div id="path">
                 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{{ route('/') }}">
+                        <a itemprop="item" href="{{ route('home') }}">
                             <span itemprop="name">Trang Chủ</span>
                         </a>
                         <meta itemprop="position" content="1" />
@@ -78,8 +78,8 @@
                 <li class="li02"><a href="javascript:void(0);"
                         class="button is-danger is-rounded btn-subscribe subscribeBook" data-page="index"
                         data-id="3224"><span class="fas fa-heart"></span>Theo dõi</a></li>
-                <li class="li03"><a href="javascript:void(0);" class="button is-danger is-rounded btn-like"
-                        data-id="3224"><span class="fas fa-thumbs-up"></span>Thích</a></li>
+                <li class="li03"><a href="javascript:void(0);" class="button is-danger is-rounded btn-like"><span
+                            class="fas fa-thumbs-up"></span>Thích</a></li>
             </ul>
             @if ($comic->categories->contains('name', 'Adult') == true)
                 <p class="alert alert-danger warning-info">

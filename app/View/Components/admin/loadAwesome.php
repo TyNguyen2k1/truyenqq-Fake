@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\admin;
 
 use Illuminate\View\Component;
 
-class AdminPace extends Component
+class loadAwesome extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class AdminPace extends Component
      */
     public function render()
     {
-        return view('components.admin-pace');
+        return view('components.admin.load-awesome');
     }
 }

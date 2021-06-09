@@ -31,13 +31,17 @@ class JetstreamServiceProvider extends ServiceProvider
         // sửa lại view user
         Jetstream::deleteUsersUsing(DeleteUser::class);
         Fortify::loginView(function () {
-            return (new \App\Http\Controllers\HomeController)->index()->with('login', 'is-active');
+            // return (new \App\Http\Controllers\HomeController)->index()->with('login', 'is-active');
+            return redirect()->route('home');
         });
         Fortify::requestPasswordResetLinkView(function () {
-            return (new \App\Http\Controllers\HomeController)->index()->with('forgotPassword', 'is-active');
+            // return (new \App\Http\Controllers\HomeController)->index()->with('forgotPassword', 'is-active');
+            return redirect()->route('home');
+
         });
         Fortify::registerView(function () {
-            return (new \App\Http\Controllers\HomeController)->index()->with('register', 'is-active');
+            // return (new \App\Http\Controllers\HomeController)->index()->with('register', 'is-active');
+            return redirect()->route('home');
         });
     }
 

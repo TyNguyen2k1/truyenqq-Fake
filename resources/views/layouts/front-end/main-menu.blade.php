@@ -9,7 +9,7 @@
                         <div class="list-results">
                         </div>
                     </div>
-                    <a href="{{ route('/') }}" class="navbar-item">Trang Chủ</a>
+                    <a href="{{ route('home') }}" class="navbar-item">Trang Chủ</a>
                     <div class="navbar-item has-dropdown is-hoverable is-mega">
                         <div class="navbar-link">Thể loại</div>
                         <div class="navbar-dropdown ">

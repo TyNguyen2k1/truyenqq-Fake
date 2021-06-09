@@ -20,7 +20,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        // return view('f-end.index', compact('comics'));
+        return view('admin.comic.index');
     }
 
     /**
@@ -64,6 +64,7 @@ class ComicController extends Controller
         $comic->addMedia($request->file('avatar'))
             ->usingFileName($fileName)
             ->toMediaCollection('comic');
+        return redirect()->route('admin.comic.index')->with('message','Tạo Mới Truyện Thành Công!');
     }
 
     /**

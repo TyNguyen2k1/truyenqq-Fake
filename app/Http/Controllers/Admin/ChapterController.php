@@ -39,7 +39,7 @@ class ChapterController extends Controller
      */
     public function store(StoreChapterRequest $request)
     {
-        $chapter = Chapter::create($request->only('comic_id'));
+        $chapter = Chapter::create($request->only('comic_id', 'published_date'));
         $comic = Comic::find($request->comic_id);
 
         // luu comic_id

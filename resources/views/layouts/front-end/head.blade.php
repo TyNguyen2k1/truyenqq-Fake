@@ -5,7 +5,7 @@
         content="Web đọc truyện tranh manhwa, manhua, manga, ngôn tình, tiên hiệp, kiếm hiệp online hay và mới nhất cập nhật liên tục tại TruyenQQ.Com">
     <meta property="og:site_name" content="TruyenQQ.Com" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="{{ route('/') }}" />
+    <meta property="og:url" content="{{ route('home') }}" />
     <meta property="fb:admins" content="100005362455416" />
     <meta property="fb:pages" content="513809542148789" />
     <!--[if IE]>

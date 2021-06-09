@@ -78,7 +78,7 @@
         {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "url": "{{ route('/') }}",
+            "url": "{{ route('home') }}",
             "potentialAction": {
                 "@type": "SearchAction",
                 "target": "http://truyenqq.com/tim-kiem.html?q={search_term_string}",
@@ -92,7 +92,7 @@
             "@context": "http://schema.org",
             "@type": "Person",
             "name": "TruyenQQ",
-            "url": "{{ route('/') }}",
+            "url": "{{ route('home') }}",
             "sameAs": ["https://www.facebook.com/fantruyenqq"]
         }
 
@@ -142,12 +142,12 @@
 
     <input type="hidden" id="keyword-default" value="tổng tài">
     <div class="outsite on">
-        <section class="top-bar on" id="home">
+        {{-- <section class="top-bar on" id="home">
             <div class="container">
                 <div class="level">
                     <div class="level-left pc">
                         <span class="logo">
-                            <a href="{{ route('/') }}">Truyen QQ</a>
+                            <a href="{{ route('home') }}">Truyen QQ</a>
                         </span>
                         <!-- /.logo -->
                         <div class="top-search">
@@ -199,7 +199,8 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
+        @include('layouts.front-end.topbar', ['isDark' => true])
         <!-- /.top-bar -->
         @guest
             @include('layouts.front-end.login-modal')
@@ -270,7 +271,7 @@
                             <div id="path" class="path-top">
                                 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                        <a itemprop="item" href="{{ route('/') }}">
+                                        <a itemprop="item" href="{{ route('home') }}">
                                             <span itemprop="name">Trang Chủ</span>
                                         </a>
                                         <meta itemprop="position" content="1" />
@@ -356,7 +357,7 @@
                             <div id="path">
                                 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
                                     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                                        <a itemprop="item" href="{{ route('/') }}">
+                                        <a itemprop="item" href="{{ route('home') }}">
                                             <span itemprop="name">Trang Chủ</span>
                                         </a>
                                         <meta itemprop="position" content="1" />
@@ -393,7 +394,7 @@
             <div class="level">
                 <div class="level-left">
                     <ul class="list-01">
-                        <li><a class="" href="{{ route('/') }}"><i class="fas fa-home"></i> <span
+                        <li><a class="" href="{{ route('home') }}"><i class="fas fa-home"></i> <span
                                     class="control-see">Trang chủ</span></a></li>
                         <li><a class="" href="javascript:void(0);" id="faul"><i class="fas fa-exclamation-circle"></i>
                                 <span class="control-see">Báo lỗi</span></a></li>

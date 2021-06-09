@@ -16,7 +16,7 @@ class CreateComicsTable extends Migration
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('another_name')->nullable()->default('');
+            $table->string('another_name')->nullable()->default('Đang cập nhật');
             $table->string('slug');
             $table->longText('description');
             $table->foreignId('author_id')

@@ -19,11 +19,15 @@ use Illuminate\Database\Eloquent\Collection;
 |
 */
 
-Route::get('/dashboard', function () {
-    return redirect()->back();
+Route::get('test', function(){
+    return view('test');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return back();
 })->name('dashboard');
 
-Route::get('/', [HomeController::class, 'index'])->name('/');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::name('front-end.')->group(function () {
 

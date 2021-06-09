@@ -7,7 +7,7 @@
 @stop
 @section('content')
     <div class="col-md-12">
-        <x-admin-pace></x-admin-pace>
+        <x-admin.admin-pace />
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Thêm truyện mới</h3>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputName">Tên khác (<i>nếu có</i>)</label>
-                        <input type="text" name="another_name" id="inputName" value="{{ old('another_name') }}"
+                        <input type="text" name="another_name" value="{{ old('another_name') }}"
                             class="form-control @error('another_name') is-invalid @enderror">
                         @error('another_name')
                             <span class="invalid-feedback" role="alert">
@@ -150,20 +150,6 @@
     <script src="{{ asset('/vendor/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="../../dist/js/demo.js"></script> --}}
-
-    <script>
-        $(function() {
-            //Initialize Select2 Elements
-            $('.select2').select2()
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
-        })
-        $(function() {
-            bsCustomFileInput.init();
-        });
-
-    </script>
+    <!-- admin.js -->
+    <script src="{{ mix('js/admin.js') }}" defer></script>
 @stop

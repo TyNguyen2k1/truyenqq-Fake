@@ -15,20 +15,11 @@ Route::middleware('auth:admin')->name('admin.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
     // the loai
-    Route::prefix('the-loai')->group(function () {
-
-        Route::get('index', [CategoryController::class, 'index'])->name('category.index');
-        Route::get('create', [CategoryController::class, 'create'])->name('category.create');
-        Route::post('store', [CategoryController::class, 'store'])->name('category.store');
-    });
+    Route::get('the-loai/index', [CategoryController::class, 'index'])->name('category.index');
     //end
 
     //tac gia
-    Route::prefix('tac-gia')->group(function () {
-        Route::get('index', [AuthorController::class, 'index'])->name('author.index');
-        Route::get('create', [AuthorController::class, 'create'])->name('author.create');
-        Route::post('store', [AuthorController::class, 'store'])->name('author.store');
-    });
+    Route::get('tac-gia/index', [AuthorController::class, 'index'])->name('author.index');
     //end
 
     //truyen

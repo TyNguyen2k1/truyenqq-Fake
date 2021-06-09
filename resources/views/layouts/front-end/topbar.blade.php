@@ -3,7 +3,7 @@
         <div class="level">
             <div class="level-left pc">
                 <span class="logo">
-                    <a href="{{ route('/') }}">Truyen QQ</a>
+                    <a href="{{ route('home') }}">Truyen QQ</a>
                 </span>
                 <!-- /.logo -->
                 <livewire:list-results />
