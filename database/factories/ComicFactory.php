@@ -44,7 +44,7 @@ class ComicFactory extends Factory
     {
         return $this->afterCreating(function (Comic $comic) {
             // tao avatar cho truyen
-            $url = 'https://source.unsplash.com/random/190x247';
+            $url = 'https://source.unsplash.com/190x247/?cats';
             $comic
                 ->addMediaFromUrl($url)
                 ->toMediaCollection('comic');
@@ -70,7 +70,7 @@ class ComicFactory extends Factory
                     ]);
                 }
 
-                $chapter->addMediaFromUrl('https://source.unsplash.com/random/840x1200')
+                $chapter->addMediaFromUrl('https://source.unsplash.com/840x1200/?cats')
                     ->toMediaCollection('chapter');
             }
 
@@ -78,7 +78,7 @@ class ComicFactory extends Factory
             $comic->statistical()->create();
 
             // tao slider
-            $comic->slider()->create()->addMediaFromUrl('https://source.unsplash.com/random/583x386')
+            $comic->slider()->create()->addMediaFromUrl('https://source.unsplash.com/583x386/?cats')
                 ->toMediaCollection('slider');
         });
     }
