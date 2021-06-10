@@ -25,13 +25,13 @@
 
                 <!-- /.list-stories -->
                 <div class="has-text-centered">
-                    <a href="{{ url('/', ['page', 2]) }}" class="view-more-btn">Xem thêm
+                    <a href="{{ url('/moi-cap-nhat?page=2') }}" class="view-more-btn">Xem thêm
                         nhiều truyện</a>
                 </div>
             </div>
             <!-- /.latest -->
             <div class="female">
-                <div class="caption" id="list-female"><a href="http://truyenqq.com/truyen-con-gai.html"><span
+                <div class="caption" id="list-female"><a href="{{ route('front-end.comics_female') }}"><span
                             class="female-icon"></span>Truyện con gái</a></div>
                 <div class="tile is-ancestor">
                     <div class="tile is-vertical is-parent">
@@ -42,7 +42,7 @@
             </div>
             <!-- /.female -->
             <div class="male">
-                <div class="caption" id="list-male"><a href="http://truyenqq.com/truyen-con-trai.html"><span
+                <div class="caption" id="list-male"><a href="{{ route('front-end.comics_male') }}"><span
                             class="male-icon"></span>Truyện con trai</a></div>
                 <div class="tile is-ancestor">
                     <div class="tile is-vertical is-parent">
