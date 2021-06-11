@@ -8,6 +8,7 @@
     <meta property="og:url" content="{{ route('home') }}" />
     <meta property="fb:admins" content="100005362455416" />
     <meta property="fb:pages" content="513809542148789" />
+    <script src="http://truyenqq.com/cdn-cgi/apps/head/f_sL80yAdWwO4OiZjbZQG9755P0.js"></script>
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <![endif]-->
@@ -24,13 +25,6 @@
     <link rel="stylesheet" type="text/css" href="http://static.truyenqq.com/template/frontend/styles/read.css?v=1.1" />
     {{-- <script src="http://static.truyenqq.com/template/frontend/scripts/main.js?v=4.4"></script> --}}
     <script src="{{ asset('frontend/scripts/main.js') }}"></script>
-    <script type="text/javascript">
-        var device = 0;
-        var urlJson = '';
-        var urlSearch = '';
-        var urlCaptcha = '';
-
-    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55970084-1"></script>
     <script>

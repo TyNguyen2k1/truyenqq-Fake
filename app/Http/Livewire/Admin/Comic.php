@@ -21,6 +21,10 @@ class Comic extends Component
     public function deleteComic()
     {
         $comic = \App\Models\Comic::findOrFail($this->comicId);
+        $comic->slider->delete();
+        if ($comic->chapters ?? null != null) {
+            $comic->chapters->delete();
+        }
         $comic->delete();
         $this->dispatchBrowserEvent('hide-delete-modal', ['type' => 'success', 'message' => 'Xóa Truyện']);
         return redirect()->back();
@@ -30,7 +34,7 @@ class Comic extends Component
     {
         $comicDetail = \App\Models\Comic::find($this->comicId) ?? null;
         $comics = \App\Models\Comic::with('chapters');
-        return view('livewire.admin.comic',[
+        return view('livewire.admin.comic', [
             'comics' => $comics->paginate(5),
             'comicDetail' => $comicDetail
         ]);

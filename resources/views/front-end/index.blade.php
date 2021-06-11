@@ -6,6 +6,14 @@
         }
 
     </style>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+    </script>
 @endsection
 @section('content')
     @include('layouts.front-end.hero')
