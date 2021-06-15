@@ -57,6 +57,28 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+## Install this repositories
+First, you should rename the `.env.example` file to `.env` and setup it.
+
+```sh
+#Composer
+composer install
+#Node
+npm install && npm run dev
+# Remove all cache
+composer optimize:clear
+# generate key
+php artisan key:gen
+# create table and my data
+php artisan migrate --seed
+# public storage
+php artisan storage:link
+# run serve
+php artisan serve
+```
+
+Enjoy !!!
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
