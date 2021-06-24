@@ -5,7 +5,7 @@
                 @if (App\Models\User::find($comment->user_id))
                     <img src="{{ $comment->user->profile_photo_url }}" alt="Nova">
                 @else
-                    <img src="{{ asset('storage/frontend/images/noavatar.png') }}" alt="Nova">
+                    <img src="http://static.truyenqq.com/template/frontend/images/noavatar.png" alt="Nova">
                 @endif
             </figure>
             <div class="item-comment">
