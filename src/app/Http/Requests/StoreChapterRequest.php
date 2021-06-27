@@ -26,8 +26,8 @@ class StoreChapterRequest extends FormRequest
         return [
             "comic_id" => ['required', 'exists:comics,id'],
             "chapter_images" => ['required', 'array', 'min:1'],
-            "chapter_images.*" => ['required', 'image'],
-            'published_date' => ['date_format:ATOM']
+            "chapter_images.*" => ['required', 'mimes:jpg,jpeg,png'],
+            // "published_date" => ['date_format:Y-m-d h:i A']
         ];
     }
 }

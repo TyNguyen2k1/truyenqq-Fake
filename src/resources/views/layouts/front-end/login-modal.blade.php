@@ -15,7 +15,7 @@
             <div class="tabs-contents">
 
                 <div class="login-section">
-                    <div class="form-login ">
+                    {{-- <div class="form-login ">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <input type="email" placeholder="Email" name="email" id="email" />
@@ -24,13 +24,13 @@
                                 nhập</button>
                             <a href="javascript:void(0);" class="forget-password-link">Quên mật khẩu</a>
                         </form>
-                    </div>
-                    {{-- <div class="form-login">
+                    </div> --}}
+                    <div class="form-login">
                         <input type="email" placeholder="Email" id="email_login">
                         <input type="password" placeholder="Mật khẩu" id="password_login">
                         <button type="submit" class="button_login btn btn-lg">Đăng nhập</button>
                         <a href="javascript:void(0);" class="forget-password-link">Quên mật khẩu</a>
-                    </div> --}}
+                    </div>
                 </div>
 
                 <!-- /.login-section -->

@@ -3,6 +3,28 @@
     {{ $comic->name . ' - ' . $comic->another_name }} Tiếng Việt
 @endsection
 
+@section('head')
+    <style>
+        .btn-buy {
+            margin-left: 1%;
+            padding: 2px 15px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 3px 0 rgb(0 0 0 / 25%);
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            background-color: #f18121;
+            transition: all .3s ease;
+        }
+
+        .btn-buy:hover {
+            opacity: .5;
+        }
+
+    </style>
+@endsection
+
 
 <!-- /.top-bar -->
 <!-- /.login-modal -->
@@ -97,17 +119,27 @@
                     <h2 class="story-detail-title">Danh sách chương</h2>
                 </div>
                 <div class="box">
-                    @foreach ($comic->chapters as $comicChapterList)
+                    @foreach ($comic->chapters()->latest()->get() as $comicChapterList)
                         <div class="works-chapter-list">
-
                             <div class="works-chapter-item row">
                                 <div class="col-md-10 col-sm-10 col-xs-8 ">
-                                    <a target="_blank"
-                                        href="{{ route('comic.read', ['slug' => $comic->slug, 'chap' => $loop->remaining]) }}">Chương
-                                        {{ $loop->remaining }}</a> {{-- $loop->remaining	Vòng lặp còn phải lặp thêm bao nhiêu lần nữa. --}}
+                                    @if ($comicChapterList->isLock && !(auth()->check() && auth()->user()->chapters()->find($comicChapterList->id)))
+                                        <div style="cursor: not-allowed">Chương {{ $loop->remaining }} <i
+                                                class="fa fa-lock"></i>
+
+                                                <button type="submit" data-id="{{ $comicChapterList->id }}" data-price="{{ $comicChapterList->price }}" class="btn-buy"><i class="fas fa-shopping-cart">
+                                                    </i> buy ({{ $comicChapterList->price }}cc)</button>
+                                        </div>
+                                    @else
+                                        <a target="_blank"
+                                            href="{{ route('comic.read', ['slug' => $comic->slug, 'chap' => $loop->remaining]) }}">Chương
+                                            {{ $loop->remaining }}</a>
+                                        {{-- $loop->remaining	Vòng lặp còn phải lặp thêm bao nhiêu lần nữa. --}}
+                                    @endif
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-4 text-right">
-                                    {{ $comicChapterList->created_at->format('m/d/Y') }} </div>
+                                    {{ $comicChapterList->created_at->format('m/d/Y') }}
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -118,23 +150,45 @@
     </section>
     <div id="list_emoji" class="modal fade">
         <div class="modal-background"></div>
-        <div class="modal-content">
+        <div class="modal-content" style="width: 500px">
             <div class="modal-header">
                 <button type="button" class="close close-emoji"><span aria-hidden="true">&times;</span></button>
-                <span class="modal-title">Biểu Tượng Cảm Xúc</span>
+                <span class="top-caption">Mua chapter</span>
             </div>
-            <div class="modal-body"></div>
+            <div class="modal-body">
+                <button type="submit" id="buyChapter" style="background: #8bc34a; margin-left: 40%" class="button is-danger is-rounded btn-mua">Mua</button>
+            </div>
         </div>
     </div>
     <!-- /.main-content -->
-    <script type="text/javascript">
-        var urlComment = 'http://truyenqq.com/frontend/comment/index';
-        var urlCommentLoad = 'http://truyenqq.com/frontend/comment/list';
-        var urlCommentRemove = 'http://truyenqq.com/frontend/comment/remove';
-        var urlLikeComment = 'http://truyenqq.com/frontend/comment/like';
-        var urlCommentEmoji = 'http://truyenqq.com/frontend/comment/load-emoji';
 
+    <script>
+        @if (auth()->check())
+        // (function ($) {
+        // $(document).ready(function() {
+
+        //     $('#buyChapter').on('click', function() {
+
+        //     $.ajax({
+        //         url: "{{ route('user.buy') }}",
+        //         type: 'POST',
+        //         data: { _token: '{{ csrf_token() }}' },
+        //         success:function(){alert('success!');},
+        //         error: function (){alert('error');},
+        //     });
+
+        //     });
+
+        // });
+        // }(jQuery));
+            var urlBuy ="{{ route('user.buy') }}";
+            var userID = {{ auth()->id() }};
+            var isLogin = true;
+        @else
+            var isLogin = false;
+        @endif
     </script>
+
     <!-- /.footer -->
     <div class="modal qr-modal">
         <div class="modal-background"></div>

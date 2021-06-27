@@ -81,4 +81,38 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    /**
+     * The chapters that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function chapters(): BelongsToMany
+    {
+        return $this->belongsToMany(Chapter::class, 'chapter_user');
+    }
+
+    /**
+     * Get the wallet associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class,'id');
+    }
+
+    /**
+     * check have money
+     *
+     * @return bool
+     */
+    public function haveMoney($price)
+    {
+        if ($this->wallet->credits > $price) {
+            return true;
+        }
+
+        return false;
+    }
 }

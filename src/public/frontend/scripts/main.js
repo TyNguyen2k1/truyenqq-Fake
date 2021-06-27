@@ -2429,6 +2429,7 @@
                     t.removeChild(n),
                     _e)
                   : void 0);
+        var e, t, n;
     };
     var je,
         Ne,
@@ -3805,6 +3806,78 @@
             return new f.XMLHttpRequest();
         } catch (e) {}
     }
+    f.ActiveXObject &&
+        C(f).on("unload", function () {
+            for (var e in Xt) Xt[e](void 0, !0);
+        }),
+        (v.cors = !!Ut && "withCredentials" in Ut),
+        (Ut = v.ajax = !!Ut) &&
+            C.ajaxTransport(function (l) {
+                var c;
+                if (!l.crossDomain || v.cors)
+                    return {
+                        send: function (e, s) {
+                            var t,
+                                r = l.xhr(),
+                                a = ++Qt;
+                            if ((r.open(l.type, l.url, l.async, l.username, l.password), l.xhrFields)) for (t in l.xhrFields) r[t] = l.xhrFields[t];
+                            for (t in (l.mimeType && r.overrideMimeType && r.overrideMimeType(l.mimeType), l.crossDomain || e["X-Requested-With"] || (e["X-Requested-With"] = "XMLHttpRequest"), e))
+                                void 0 !== e[t] && r.setRequestHeader(t, e[t] + "");
+                            r.send((l.hasContent && l.data) || null),
+                                (c = function (e, t) {
+                                    var n, i, o;
+                                    if (c && (t || 4 === r.readyState))
+                                        if ((delete Xt[a], (c = void 0), (r.onreadystatechange = C.noop), t)) 4 !== r.readyState && r.abort();
+                                        else {
+                                            (o = {}), (n = r.status), "string" == typeof r.responseText && (o.text = r.responseText);
+                                            try {
+                                                i = r.statusText;
+                                            } catch (e) {
+                                                i = "";
+                                            }
+                                            n || !l.isLocal || l.crossDomain ? 1223 === n && (n = 204) : (n = o.text ? 200 : 404);
+                                        }
+                                    o && s(n, i, o, r.getAllResponseHeaders());
+                                }),
+                                l.async ? (4 === r.readyState ? setTimeout(c) : (r.onreadystatechange = Xt[a] = c)) : c();
+                        },
+                        abort: function () {
+                            c && c(void 0, !0);
+                        },
+                    };
+            }),
+        C.ajaxSetup({
+            accepts: { script: "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript" },
+            contents: { script: /(?:java|ecma)script/ },
+            converters: {
+                "text script": function (e) {
+                    return C.globalEval(e), e;
+                },
+            },
+        }),
+        C.ajaxPrefilter("script", function (e) {
+            void 0 === e.cache && (e.cache = !1), e.crossDomain && ((e.type = "GET"), (e.global = !1));
+        }),
+        C.ajaxTransport("script", function (t) {
+            if (t.crossDomain) {
+                var i,
+                    o = T.head || C("head")[0] || T.documentElement;
+                return {
+                    send: function (e, n) {
+                        ((i = T.createElement("script")).async = !0),
+                            t.scriptCharset && (i.charset = t.scriptCharset),
+                            (i.src = t.url),
+                            (i.onload = i.onreadystatechange = function (e, t) {
+                                (!t && i.readyState && !/loaded|complete/.test(i.readyState)) || ((i.onload = i.onreadystatechange = null), i.parentNode && i.parentNode.removeChild(i), (i = null), t || n(200, "success"));
+                            }),
+                            o.insertBefore(i, o.firstChild);
+                    },
+                    abort: function () {
+                        i && i.onload(void 0, !0);
+                    },
+                };
+            }
+        });
     var Vt = [],
         Gt = /(=)\?(?=&|$)|\?\?/;
     C.ajaxSetup({
@@ -7193,6 +7266,7 @@
                       })
                   )
                 : this.trigger(t);
+            var n, i;
         };
     })(jQuery, "smartresize"),
     (function (s) {
@@ -7813,6 +7887,7 @@
                                               : S(e, l, n);
                                   })(e.target, e, r)
                                 : ((t = e.target), (n = e), (o = (i = r)._settings), v(o.callback_exit, t, n, i), void (o.load_delay && _(t)));
+                            var t, n, i, o, s;
                         });
                     },
                     { root: (e = r._settings).container === document ? null : e.container, rootMargin: e.thresholds || e.threshold + "px" }
@@ -7832,6 +7907,7 @@
         }
         function D(e, t) {
             return (n = e || j(t)), E(n).filter(N);
+            var n;
         }
         function e(e, t) {
             var n;
@@ -8006,17 +8082,17 @@
                     h(this).on("click", ".top-bar .notify", function () {
                         if (h(this).hasClass("open")) h(this).removeClass("open");
                         else if ((h(".top-bar .notify").removeClass("open"), h(".top-bar .btn-search").removeClass("action"), h(this).addClass("open"), "notification" == h(this).data("id") && "" != h("#id_notification").val())) {
-                            // var t = this;
-                            // h.ajax({
-                            //     type: "POST",
-                            //     cache: !1,
-                            //     url: urlNotification,
-                            //     cache: !1,
-                            //     data: { id: h("#id_notification").val() },
-                            //     success: function (e) {
-                            //         h(t).removeClass("unread"), h("#id_notification").val("");
-                            //     },
-                            // });
+                            var t = this;
+                            h.ajax({
+                                type: "POST",
+                                cache: !1,
+                                url: urlNotification,
+                                cache: !1,
+                                data: { id: h("#id_notification").val() },
+                                success: function (e) {
+                                    h(t).removeClass("unread"), h("#id_notification").val("");
+                                },
+                            });
                         }
                     }),
                     h(document).on("click", "body", function (e) {
@@ -8315,6 +8391,58 @@
                         var t = h(this).parent().parent().parent().find("textarea").prop("id");
                         return h("#id_textarea").val(t), !1;
                     }),
+                    h(document).on("click", "#btn_by_credits", function (e) {
+                        // alert('oke');
+                        h.ajax({
+                            url: "/user/buy-credits-submit",
+                            type: "POST",
+                            data: {
+                            },
+                            success: function (e) {
+                                if (e.success) {
+                                    alert(e.success)
+                                    location.reload(!0);
+                                }else {
+                                    alert(e.error)
+                                }
+                            },
+                            error: function(e) {
+                                alert('error');
+                            },
+                        });
+                        return h("#id_textarea").val(t), !1;
+                    }),
+                    h(document).on("click", ".btn-mua", function (e) {
+                        // alert('oke');
+                        h.ajax({
+                            url: urlBuy,
+                            type: "POST",
+                            data: {
+                            userID: userID,
+                            chapterID: h(".btn-buy").data("id"),
+                            chapterPrice: h(".btn-buy").data("price"),
+                            },
+                            success: function (e) {
+                                if (e.success) {
+                                    alert(e.success)
+                                    location.reload(!0);
+                                }else {
+                                    alert(e.error)
+                                }
+                            },
+                            error: function(e) {
+                                alert('error');
+                            },
+                        });
+                        return h("#id_textarea").val(t), !1;
+                    }),
+                    h(".box").on("click", ".btn-buy", function (e) {
+                        if(isLogin){
+                            return h("#list_emoji").addClass("is-active");
+                        }else{
+                            return alert('ban chua dang nhap');
+                        }
+                    }),
                     h(document).on("click", ".close-emoji", function (e) {
                         return h("#list_emoji").removeClass("is-active"), !1;
                     }),
@@ -8322,18 +8450,21 @@
                         var t = h(this).data("id"),
                             n = h(this).data("parent");
                         if ((0 == n && (n = t), 0 == h(".comments-container").find(".reply_" + t).length)) {
-                            // document.getElementById("form_comment").scrollIntoView();
-                            location.href = "#form_comment";
-                            // var
-                            //     s = h(h(".main_comment").clone()).insertAfter(h(this).parent().parent().parent().parent());
-                            // s.removeClass("main_comment"),
-                            //     s.addClass("reply_comment"),
-                            //     s
-                            //         .find("textarea")
-                            //         .attr("id", "content_comment_" + t)
-                            //         .val("")
-                            //         .focus(),
-                            //     s.addClass("reply_" + t);
+                            var i = h(this).data("user"),
+                                o = h(this).data("replyname"),
+                                s = h(h(".main_comment").clone()).insertAfter(h(this).parent().parent().parent().parent());
+                            s.removeClass("main_comment"),
+                                s.addClass("reply_comment"),
+                                s
+                                    .find("textarea")
+                                    .attr("id", "content_comment_" + t)
+                                    .val("")
+                                    .focus(),
+                                s.find("textarea").attr("data-id", t),
+                                s.find("textarea").attr("data-parent", n),
+                                s.find("textarea").attr("data-user", i),
+                                s.find("textarea").attr("data-replyname", o),
+                                s.addClass("reply_" + t);
                         }
                     }),
                     h(document).on("click", ".list-comment .remove_comnent", function (e) {
@@ -8352,8 +8483,77 @@
                             n = confirm("Bạn có chắc muốn xoá Cấm Bình Luận thành viên này không?");
                         h(this);
                         1 == n && h.ajax({ method: "POST", url: urlCommentBannick, data: { id: t } }).done(function (e) {});
+                    }),
+                    h(document).on("click", "#list_emoji .emoji_comment", function (e) {
+                        var t = h(this).data("code");
+                        !(function (e, t) {
+                            var n = document.getElementById(e);
+                            if (n) {
+                                var i = n.scrollTop,
+                                    o = 0,
+                                    s = n.selectionStart || "0" == n.selectionStart ? "ff" : !!document.selection && "ie";
+                                if ("ie" == s) {
+                                    n.focus();
+                                    var r = document.selection.createRange();
+                                    r.moveStart("character", -n.value.length), (o = r.text.length);
+                                } else "ff" == s && (o = n.selectionStart);
+                                var a = n.value.substring(0, o),
+                                    l = n.value.substring(o, n.value.length);
+                                if (((n.value = a + t + l), (o += t.length), "ie" == s)) {
+                                    n.focus();
+                                    var c = document.selection.createRange();
+                                    c.moveStart("character", -n.value.length), c.moveStart("character", o), c.moveEnd("character", 0), c.select();
+                                } else "ff" == s && ((n.selectionStart = o), (n.selectionEnd = o), n.focus());
+                                n.scrollTop = i;
+                            }
+                        })(h("#id_textarea").val(), t);
+                    }),
+                    h(document).on("click", ".submit_comment", function (e) {
+                        var t = h(this).parent().find("textarea").val().trim(),
+                            n = h(this).parent().find("textarea").data("id"),
+                            i = h(this).parent().find("textarea").data("parent"),
+                            o = h(this).parent().find("textarea").data("replyname"),
+                            s = h(this).parent().find("textarea").data("user"),
+                            r = h("#book_id").val(),
+                            a = h(this).parent().parent().find("#name_comment").val().trim(),
+                            l = h(this).parent().parent().find("#email_comment").val().trim(),
+                            c = h("#episode_name").val(),
+                            u = h("#episode_id").val(),
+                            d = { name_comment: a, email_comment: l, slug: h("#slug").val(), content: t, book_id: r, episode_name: c, episode_id: u },
+                            p = h(this);
+                        null != typeof i && (d.parent_id = i),
+                            null != typeof n && (d.reply_id = n),
+                            null != typeof s && (d.reply_user = s),
+                            null != typeof o && (d.reply_name = o),
+                            "" == t
+                                ? alert("Vui lòng nhập nội dung bình luận.")
+                                : "" == a
+                                ? alert("Vui lòng nhập tên của bạn.")
+                                : 16 < a.length
+                                ? alert("Tên không được quá 16 ký tự.")
+                                : "" != l && 0 == f(l)
+                                ? alert("Định dạng email chưa chính xác")
+                                : "" != a &&
+                                  0 ==
+                                      (function (e) {
+                                          return /^[a-zA-Z\-\s\_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/.test(e);
+                                      })(a)
+                                ? alert("Tên không được sử dụng các ký tự đặc biệt.")
+                                : h.ajax({ method: "POST", url: urlComment, data: d }).done(function (e) {
+                                      void 0 !== i ? (h(".child_" + n).after(e), p.parent().parent().parent().remove()) : (h(".list-comment").prepend(e), p.parent().find("textarea").val("")),
+                                          h(".content-comment").readmore({
+                                              maxHeight: 105,
+                                              speed: 100,
+                                              moreLink: '<p class="readmore"><a href="#">Xem Thêm</a></p>',
+                                              lessLink: '<p class="readmore"><a href="#">Rút Gọn</a></p>',
+                                              embedCSS: !0,
+                                              sectionCSS: "display: block; width: 100%;",
+                                              startOpen: !1,
+                                              expandedClass: "readmore-js-expanded",
+                                              collapsedClass: "readmore-js-collapsed",
+                                          });
+                                  });
                     });
-
                 if (
                     (h(document).on("click", ".load_more_comment", function (e) {
                         var t = h("#book_id").val(),

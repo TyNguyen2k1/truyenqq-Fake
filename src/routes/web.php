@@ -6,6 +6,8 @@ use App\Models\Comic;
 use App\Models\Slider;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ComicController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\LockedChapter;
 use Illuminate\Database\Eloquent\Collection;
 
 /*
@@ -53,7 +55,7 @@ Route::name('front-end.')->group(function () {
 Route::prefix('truyen-tranh')->name('comic.')->group(function () {
     Route::get('{slug}', [ComicController::class, 'comic_detail'])->name('detail');
 
-    Route::get('{slug}/chap-{chap}', [ComicController::class, 'read_comic'])->name('read');
+    Route::get('{slug}/chap-{chap}', [ComicController::class, 'read_comic'])->name('read')->middleware(LockedChapter::class);
 });
 
 //user
@@ -63,7 +65,23 @@ Route::prefix('user')->name('user.')->middleware(['auth:sanctum', 'verified'])->
         return view('front-end.user.profile');
     })->name('profile');
 
+    Route::get('tin-nhan', function () {
+        return view('front-end.user.user_messenger');
+    })->name('messenger');
+
     Route::get('truyen-dang-theo-doi', function () {
         return view('front-end.user.follow_list');
     })->name('follow_list');
+
+    Route::get('buy-credits', function () {
+        return view('front-end.user.user_buy_credits');
+    })->name('by-credits');
+
+    Route::post('buy-credits-submit', [UserController::class, 'buy_credits'])->name('buy-credits-submit');
+    Route::post('buy', [UserController::class, 'buy'])->name('buy');
+
+    Route::get('doi-mat-khau', function (){
+        return view('front-end.user.user_update_password');
+    })->name('update_password');
+
 });

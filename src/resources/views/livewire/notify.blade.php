@@ -5,7 +5,10 @@ $notifications = auth()
 @endphp
 <div class="top-buttons has-login">
     <div class="notify home smp"><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></div>
-    <div class="notify center {{ auth()->user()->unreadNotifications->count() > 0 ? 'unread' : '' }} " data-id="1">
+    <div class="notify center {{ auth()->user()->unreadNotifications->count() > 0
+    ? 'unread'
+    : '' }} "
+        data-id="1">
         <i class="fas fa-bell"></i>
         <div class="list-messages">
             <div class="title-message">Thông báo</div>
@@ -59,22 +62,21 @@ $notifications = auth()
                 <li>
                     <a href="{{ route('user.follow_list') }}"><i class="fas fa-heart"></i>
                         Truyện đang theo dõi</a>
-                    {{-- </li>
+                </li>
                 <li>
-                    <a href="http://truyenqq.com/lich-su.html"><i class="fas fa-history"></i> Lịch sử
+                    <a href="{{ route('front-end.history') }}"><i class="fas fa-history"></i> Lịch sử
                         đọc
                         truyện</a>
                 </li>
 
                 <li>
-                    <a href="http://truyenqq.com/tin-nhan.html"><i class="fas fa-envelope"></i> Tin
-                        nhắn</a>
+                    <a href="{{ route('user.buy-credits-submit') }}"><i class="fas fa-dollar-sign"></i> Mua credits ({{ auth()->user()->wallet->credits }})</a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="http://truyenqq.com/doi-mat-khau.html"><i class="fas fa-lock"></i> Đổi mật
                         khẩu</a>
                 </li> --}}
-                    <!--<li> <a href="http://truyenqq.com/dang-ky-nhom-dich.html"><i class="fas fa-clipboard-list"></i> Đăng ký nhóm dịch</a> </li>-->
+                <!--<li> <a href="http://truyenqq.com/dang-ky-nhom-dich.html"><i class="fas fa-clipboard-list"></i> Đăng ký nhóm dịch</a> </li>-->
                 <li>
 
                     <a href="{{ route('logout') }}"
