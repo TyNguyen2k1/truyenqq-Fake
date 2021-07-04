@@ -39,7 +39,12 @@ class ChapterController extends Controller
      */
     public function store(StoreChapterRequest $request)
     {
-        $chapter = Chapter::create($request->only('comic_id', 'published_date'));
+        $chapter = Chapter::create([
+            'comic_id' => $request->comic_id,
+            'published_date' => $request->published_date,
+            'isLock' => $request->boolean('isLock') ? 1 : 0,
+            'price' => 50
+        ]);
         $comic = Comic::find($request->comic_id);
 
         // luu comic_id
@@ -54,6 +59,8 @@ class ChapterController extends Controller
             $chapter->addMedia($image_item)
                 ->toMediaCollection('chapter');
         }
+
+        return redirect()->route('admin.chapter.create');
     }
 
     /**

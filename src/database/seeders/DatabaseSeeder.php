@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(AdminSeeder::class);
-        \App\Models\Comic::factory(50)->create();
+        \App\Models\Comic::factory(3)->create();
     }
 }

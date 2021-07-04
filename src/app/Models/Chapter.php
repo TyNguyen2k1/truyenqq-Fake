@@ -14,7 +14,7 @@ class Chapter extends Model implements HasMedia
 
     protected $dates = ['published_date'];
 
-    protected $fillable = ['comic_id', 'published_date'];
+    protected $fillable = ['comic_id', 'published_date', 'isLock', 'price'];
 
     // date time format
     // public function getCreatedAtAttribute($value)

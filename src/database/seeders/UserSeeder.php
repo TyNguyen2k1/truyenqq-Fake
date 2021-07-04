@@ -26,5 +26,9 @@ class UserSeeder extends Seeder
             'created_at' => new DateTime,
             'updated_at' => new DateTime
         ]);
+        DB::table('wallets')->insert([
+            'credits' => 100,
+            'user_id' => 1,
+        ]);
     }
 }

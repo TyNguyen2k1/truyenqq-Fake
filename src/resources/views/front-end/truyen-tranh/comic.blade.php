@@ -124,7 +124,7 @@
                             <div class="works-chapter-item row">
                                 <div class="col-md-10 col-sm-10 col-xs-8 ">
                                     @if ($comicChapterList->isLock && !(auth()->check() && auth()->user()->chapters()->find($comicChapterList->id)))
-                                        <div style="cursor: not-allowed">Chương {{ $loop->remaining }} <i
+                                        <div style="cursor: not-allowed">Chương {{ $loop->remaining }}<i
                                                 class="fa fa-lock"></i>
 
                                                 <button type="submit" data-id="{{ $comicChapterList->id }}" data-price="{{ $comicChapterList->price }}" class="btn-buy"><i class="fas fa-shopping-cart">
@@ -133,7 +133,7 @@
                                     @else
                                         <a target="_blank"
                                             href="{{ route('comic.read', ['slug' => $comic->slug, 'chap' => $loop->remaining]) }}">Chương
-                                            {{ $loop->remaining }}</a>
+                                            {{ $loop->remaining }}id: {{ $comicChapterList->id }}</a>
                                         {{-- $loop->remaining	Vòng lặp còn phải lặp thêm bao nhiêu lần nữa. --}}
                                     @endif
                                 </div>

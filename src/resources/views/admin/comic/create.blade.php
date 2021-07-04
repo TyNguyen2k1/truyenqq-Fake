@@ -39,8 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cover">Chọn ảnh đại diện</label>
-                        <input type="file" value="{{ old('avatar') }}"
-                            class="form-control @error('avatar') is-invalid @enderror" name="avatar" id="avatar" />
+                        <x-adminlte-input-file name="avatar" placeholder="Choose a file..." disable-feedback />
                         @error('avatar')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -49,14 +48,18 @@
                     </div>
                     <div class="form-group">
                         <label for="cover">Chọn ảnh slider</label>
-                        <input type="file" value="{{ old('slider') }}"
-                            class="form-control @error('slider') is-invalid @enderror" name="slider" id="slider" />
+                        <x-adminlte-input-file name="slider" placeholder="Choose a file..." disable-feedback />
                         @error('slider')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+
+                    {{-- With label and feedback disabled --}}
+
+
+
                     <div class="form-group">
                         <label for="inputDescription">Mô tả truyện</label>
                         <textarea id="inputDescription" name="description"

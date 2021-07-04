@@ -7,7 +7,7 @@
 @stop
 @section('content')
     <div class="col-md-12">
-        <x-admin.admin-pace/>
+        <x-admin.admin-pace />
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Thêm chương mới</h3>
@@ -34,8 +34,17 @@
                     <div class="form-group">
                         <label for="cover">Chọn các ảnh của chương (<strong style="color: #e0a800">vui lòng sắp xếp trước
                                 khi gửi.</strong> <u style="color:red"><i>VD:1.jpg, 2.jpg ...</i></u>)</label>
-                        <input type="file" multiple class="form-control @error('chapter_images') is-invalid @enderror"
-                            name="chapter_images[]">
+                        <x-adminlte-input-file id="ifMultiple" name="chapter_images[]" placeholder="Tải ảnh lên ..."
+                            igroup-size="lg" legend="Choose" multiple>
+                            <x-slot name="appendSlot">
+                                <x-adminlte-button theme="primary" label="Upload" />
+                            </x-slot>
+                            <x-slot name="prependSlot">
+                                <div class="input-group-text text-primary">
+                                    <i class="fas fa-file-upload"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-input-file>
                         @error('chapter_images')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -58,8 +67,14 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <x-adminlte-input-switch name="isLock" label="Chaper có phải mua ?" data-on-text="YES"
+                            data-off-text="NO" data-on-color="teal" checked />
+                    </div>
+
                     <!-- /.form-group -->
-                    <input type="submit" value="Tạo mới truyện" class="btn btn-success">
+                    <input type="submit" value="Tạo mới chapter" class="btn btn-success">
                 </div>
             </form>
         </div>

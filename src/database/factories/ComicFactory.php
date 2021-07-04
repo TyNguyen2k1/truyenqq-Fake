@@ -29,7 +29,7 @@ class ComicFactory extends Factory
             'name' => $name,
             'another_name' => $this->faker->text($maxNbChars = 50),
             'slug' => Str::slug($name),
-            'description' => $this->faker->text($maxNbChars = 300),
+            'description' => $this->faker->text($maxNbChars = 600),
             'author_id' => mt_rand(1, 50),
             'created_at' => new DateTime,
             'updated_at' => new DateTime,
@@ -57,12 +57,13 @@ class ComicFactory extends Factory
             $comic->categories()->attach($category);
 
             // them chap vào comic
-            $n =  mt_rand(3, 6);
+            $n =  mt_rand(3, 7);
             for ($i = 0; $i < $n; $i++) {
                 if ($i == $n - 1) {
                     $chapter = \App\Models\Chapter::create([
                         'comic_id' => $comic->id,
-                        'published_date' => $this->faker->dateTimeBetween($startDate = '+1 days', $endDate = '+3 days')
+                        'published_date' => $this->faker->dateTimeBetween($startDate = '+1 days', $endDate = '+3 days'),
+                        // 'isLock' => 1
                     ]);
                 } else {
                     $chapter = \App\Models\Chapter::create([
