@@ -70,7 +70,7 @@ $notifications = auth()
                 </li>
 
                 <li>
-                    <a href="{{ route('user.buy-credits-submit') }}"><i class="fas fa-dollar-sign"></i> Mua credits ({{ auth()->user()->wallet->credits }})</a>
+                    <a href="{{ route('user.by-credits') }}"><i class="fas fa-dollar-sign"></i> Mua credits ({{ auth()->user()->wallet->credits }})</a>
                 </li>
                 {{-- <li>
                     <a href="http://truyenqq.com/doi-mat-khau.html"><i class="fas fa-lock"></i> Đổi mật
