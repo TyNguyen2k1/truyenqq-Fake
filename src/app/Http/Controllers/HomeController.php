@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->comics_female = Comic::whereHas('categories', function ($query) {
+        $this->comics_female = Comic::with(['chapters', 'statistical', 'categories', 'media', 'views'])->whereHas('categories', function ($query) {
             $query->whereIn('name', [
                 'Romance',
                 'Ngôn Tình',
@@ -34,7 +34,7 @@ class HomeController extends Controller
             ]);
         });
 
-        $this->comics_male = Comic::whereHas('categories', function ($query) {
+        $this->comics_male = Comic::with(['chapters', 'statistical', 'categories', 'media', 'views'])->whereHas('categories', function ($query) {
             $query->whereIn('name', [
                 'Action',
                 'Chuyển Sinh',
@@ -51,18 +51,17 @@ class HomeController extends Controller
     // danh sach truyen
     public function index()
     {
-        $comics = Comic::latest()->paginate($this->paginate);
+        $comics = Comic::with(['chapters', 'statistical', 'categories', 'media', 'views'])->get();
         $comics_female = $this->comics_female->take(12)->get();
         $comics_male = $this->comics_male->take(12)->get();
-        $popular_comics = Comic::orderByViews('desc', Period::pastDays(1))->take(5)->get();
+        $popular_comics = Comic::with('slider', 'chapters', 'media')->orderByViews('desc', Period::pastDays(1))->take(5)->get();
         // $list_chapter_publishers = Chapter::whereDay('published_date', now()->format('d'))->distinct('comic_id')->take(6)->get();
-        $list_chapter_publishers = Chapter::
+        $list_chapter_publishers = Chapter::with('comic')
             // select(DB::raw('count(*) as chapter_count, comic_id'))->
-            whereDate('published_date', '>', now())
+            ->whereDate('published_date', '>', now())
             // ->groupBy('comic_id')
             ->take(6)
             ->get();
-        // dd($list_chapter_publishers[0]->comic->count());
         return view('front-end.index', compact('comics', 'comics_male', 'comics_female', 'popular_comics', 'list_chapter_publishers'));
     }
 

@@ -20,7 +20,14 @@
                 <div class="more-info">
                     <div class="title-more">{{ $comic->name }}</div>
                     <p class="info">Tình trạng: Đang Cập Nhật</p>
-                    <p class="info">Lượt xem: {{ views($comic)->count() }}</p>
+                    {{-- <p class="info">Lượt xem: {{ views($comic)->count() }}</p> --}}
+                    <p class="info">Lượt xem:
+                    @if ($comic->views->first())
+                        {{ $comic->views->first()->viewable_id }}
+                    @else
+                        0
+                    @endif
+                    </p>
                     <p class="info">Lượt theo dõi: {{ $comic->statistical->number_of_followers }}</p>
                     <div class="list-tags">
                         @foreach ($comic->categories as $comic_category)
