@@ -21,10 +21,6 @@ use Illuminate\Database\Eloquent\Collection;
 |
 */
 
-Route::get('test', function(){
-    return view('test');
-});
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return back();
 })->name('dashboard');
