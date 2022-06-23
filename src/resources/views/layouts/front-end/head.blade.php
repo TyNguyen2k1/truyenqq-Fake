@@ -21,8 +21,8 @@
     <link rel="alternate" type="application/atom+xml" title="TruyenQQ.Com Atom Feed - Rss"
         href="http://truyenqq.com/rss.html" />
     <link rel="stylesheet" type="text/css"
-        href="http://static.truyenqq.com/template/frontend/styles/styles.css?v=4.1" />
-    <link rel="stylesheet" type="text/css" href="http://static.truyenqq.com/template/frontend/styles/read.css?v=1.1" />
+        href="http://static.truyenqqpro.com/template/frontend/styles/styles.css?v=4.1" />
+    <link rel="stylesheet" type="text/css" href="http://static.truyenqqpro.com/template/frontend/styles/read.css?v=1.1" />
     {{-- <script src="http://static.truyenqq.com/template/frontend/scripts/main.js?v=4.4"></script> --}}
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
 

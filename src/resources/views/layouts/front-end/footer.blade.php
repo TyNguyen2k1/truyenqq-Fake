@@ -4,7 +4,7 @@
             <div class="level-left">
                 <div class="col-sm-4 text-center" itemscope="" itemtype="http://schema.org/Organization">
                     <a itemprop="url" href="//truyenqq.com">
-                        <img itemprop="logo" src="//static.truyenqq.com/template/frontend/images/logo.png"
+                        <img itemprop="logo" src="//static.truyenqqpro.com/template/frontend/images/logo.png"
                             alt="TruyenQQ - Truyện tranh Online">
                     </a>
                 </div>

@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="level-right pc">
-                                        <img src="http://static.truyenqq.com/template/frontend/images/menu-icon.jpg"
+                                        <img src="http://static.truyenqqpro.com/template/frontend/images/menu-icon.jpg"
                                             class="mega-menu-cover" alt="img">
                                     </div>
                                 </div>

@@ -200,8 +200,8 @@
     <link rel="alternate" type="application/atom+xml" title="TruyenQQ.Com Atom Feed - Rss"
         href="http://truyenqq.com/rss.html" />
     <link rel="stylesheet" type="text/css"
-        href="http://static.truyenqq.com/template/frontend/styles/styles.css?v=4.1" />
-    <link rel="stylesheet" type="text/css" href="http://static.truyenqq.com/template/frontend/styles/read.css?v=1.1" />
+        href="http://static.truyenqqpro.com/template/frontend/styles/styles.css?v=4.1" />
+    <link rel="stylesheet" type="text/css" href="http://static.truyenqqpro.com/template/frontend/styles/read.css?v=1.1" />
     {{-- <script src="http://static.truyenqq.com/template/frontend/scripts/main.js?v=4.4"></script> --}}
     <script src="{{ asset('frontend/scripts/main.js') }}"></script>
     <script type="application/ld+json">
@@ -362,7 +362,7 @@
                         <input type="password" placeholder="Mật khẩu" id="password_register">
                         <div class="login-captcha">
                             <input type="text" class="form-control" id="captcha_register" name="captcha_register" placeholder="Mã xác nhận"/>
-                            <img src="http://static.truyenqq.com/template/frontend/images/logo.png" alt="Mã Xác Nhận"/>
+                            <img src="http://static.truyenqqpro.com/template/frontend/images/logo.png" alt="Mã Xác Nhận"/>
                             <span class="refresh-captcha" data-type="register"><i class="fas fa-sync-alt"></i></span>
                             <input type="hidden" name="captcha-register" id="captcha-register" value="" />
                         </div>
@@ -391,7 +391,7 @@
                 <input type="email" placeholder="Email" id="email-forgot"/>
                 <div class="login-captcha">
                     <input type="text" class="form-control" id="captcha_forgot" name="captcha_forgot" placeholder="Mã xác nhận"/>
-                    <img src="http://static.truyenqq.com/template/frontend/images/logo.png" alt="Mã Xác Nhận"/>
+                    <img src="http://static.truyenqqpro.com/template/frontend/images/logo.png" alt="Mã Xác Nhận"/>
                     <span class="refresh-captcha" data-type="forgot"><i class="fas fa-sync-alt"></i></span>
                     <input type="hidden" name="captcha-register" id="captcha-forgot" value="" />
                 </div>
@@ -508,7 +508,7 @@
                                                                                             </div>
                                     </div>
                                     <div class="level-right pc">
-                                        <img src="http://static.truyenqq.com/template/frontend/images/menu-icon.jpg" class="mega-menu-cover" alt="img"/>
+                                        <img src="http://static.truyenqqpro.com/template/frontend/images/menu-icon.jpg" class="mega-menu-cover" alt="img"/>
                                     </div>
                                 </div>
                             </div>
@@ -1839,7 +1839,7 @@ Và thế là câu chuyện tình củm hài hước và đầy drama bắt đ�
             <div class="level-left">
 	    <div class="col-sm-4 text-center" itemscope="" itemtype="http://schema.org/Organization">
                     <a itemprop="url" href="//truyenqq.com">
-                        <img itemprop="logo" src="//static.truyenqq.com/template/frontend/images/logo.png" alt="TruyenQQ - Truyện tranh Online">
+                        <img itemprop="logo" src="//static.truyenqqpro.com/template/frontend/images/logo.png" alt="TruyenQQ - Truyện tranh Online">
                     </a>
                 </div>
                 <div class="text-footer">Copyright © 2019 - Email: ad.truyenqq@gmail.com</div>
@@ -1860,7 +1860,7 @@ Và thế là câu chuyện tình củm hài hước và đầy drama bắt đ�
             <div class="modal-content">
                 <div class="qr-section">
                     <div class="caption">Quét mã QRCODE để tải ứng dụng QQ</div>
-                    <img class="qr-img" src="http://static.truyenqq.com/template/frontend/images/app-qrcode.png" alt="qr"/>
+                    <img class="qr-img" src="http://static.truyenqqpro.com/template/frontend/images/app-qrcode.png" alt="qr"/>
                     <div class="caption">Hoặc tải từ kho ứng dụng</div>
                     <ul>
                         <li><a rel="nofollow" href="https://itunes.apple.com/us/app/truyenqq/id1282215661?ls=1&mt=8"><span class="app-store-icon"></span></a></li>

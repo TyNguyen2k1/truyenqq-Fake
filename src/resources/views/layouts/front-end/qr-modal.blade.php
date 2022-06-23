@@ -3,7 +3,7 @@
     <div class="modal-content">
         <div class="qr-section">
             <div class="caption">Quét mã QRCODE để tải ứng dụng QQ</div>
-            <img class="qr-img" src="http://static.truyenqq.com/template/frontend/images/app-qrcode.png" alt="qr" />
+            <img class="qr-img" src="http://static.truyenqqpro.com/template/frontend/images/app-qrcode.png" alt="qr" />
             <div class="caption">Hoặc tải từ kho ứng dụng</div>
             <ul>
                 <li><a rel="nofollow" href="https://itunes.apple.com/us/app/truyenqq/id1282215661?ls=1&mt=8"><span

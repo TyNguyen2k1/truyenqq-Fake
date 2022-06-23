@@ -45,7 +45,7 @@
                 "name": "TruyenQQ.Com",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://truyenqq.com/template/frontend/images/logo.png",
+                    "url": "https://truyenqqpro.com/template/frontend/images/logo.png",
                     "width": 237,
                     "height": 54
                 }
@@ -71,8 +71,8 @@
     <link rel="alternate" type="application/atom+xml" title="TruyenQQ.Com Atom Feed - Rss"
         href="http://truyenqq.com/rss.html" />
     <link rel="stylesheet" type="text/css"
-        href="http://static.truyenqq.com/template/frontend/styles/styles.css?v=4.1" />
-    <link rel="stylesheet" type="text/css" href="http://static.truyenqq.com/template/frontend/styles/read.css?v=1.1" />
+        href="http://static.truyenqqpro.com/template/frontend/styles/styles.css?v=4.1" />
+    <link rel="stylesheet" type="text/css" href="http://static.truyenqqpro.com/template/frontend/styles/read.css?v=1.1" />
     <script src="http://static.truyenqq.com/template/frontend/scripts/main.js?v=4.4"></script>
     <script type="application/ld+json">
         {
@@ -384,7 +384,7 @@
                 </div>
                 <div id="stop" class="scrollTop">
                     <span><a href=""><img
-                                src="http://static.truyenqq.com/template/frontend/images/back-to-top-icon.png" /></a></span>
+                                src="http://static.truyenqqpro.com/template/frontend/images/back-to-top-icon.png" /></a></span>
                 </div>
         </section>
         <!-- /.main-content -->
@@ -521,7 +521,7 @@
                 <div class="level-left">
                     <div class="col-sm-4 text-center" itemscope="" itemtype="http://schema.org/Organization">
                         <a itemprop="url" href="//truyenqq.com">
-                            <img itemprop="logo" src="//static.truyenqq.com/template/frontend/images/logo.png"
+                            <img itemprop="logo" src="//static.truyenqqpro.com/template/frontend/images/logo.png"
                                 alt="TruyenQQ - Truyện tranh Online">
                         </a>
                     </div>
@@ -545,7 +545,7 @@
         <div class="modal-content">
             <div class="qr-section">
                 <div class="caption">Quét mã QRCODE để tải ứng dụng QQ</div>
-                <img class="qr-img" src="http://static.truyenqq.com/template/frontend/images/app-qrcode.png" alt="qr" />
+                <img class="qr-img" src="http://static.truyenqqpro.com/template/frontend/images/app-qrcode.png" alt="qr" />
                 <div class="caption">Hoặc tải từ kho ứng dụng</div>
                 <ul>
                     <li><a rel="nofollow" href="https://itunes.apple.com/us/app/truyenqq/id1282215661?ls=1&mt=8"><span

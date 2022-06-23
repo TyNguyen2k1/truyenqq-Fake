@@ -11,7 +11,7 @@
                             href="{{ route('comic.read', ['slug' => $comic->slug, 'chap' => $comic->chapters->count() - 1]) }}">
                             <div class="hero-item">
                                 <img class="cover"
-                                    src="{{ $comic->slider()->get()->first()->getFirstMediaUrl('slider', '290x191') }}"
+                                    src="{{ $comic->slider->getFirstMediaUrl('slider', '290x191') }}"
                                     alt="cover" />
                                 <div class="bottom-shadow"></div>
                                 <div class="captions">

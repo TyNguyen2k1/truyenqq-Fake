@@ -56,7 +56,7 @@
         </div>
         <div id="Top" class="scrollTop none">
             <span><a href=""><img
-                        src="http://static.truyenqq.com/template/frontend/images/back-to-top-icon.png" /></a></span>
+                        src="http://static.truyenqqpro.com/template/frontend/images/back-to-top-icon.png" /></a></span>
         </div>
     </section>
     <!-- /.main-content -->
