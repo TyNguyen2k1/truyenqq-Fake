@@ -16,10 +16,9 @@ $notifications = auth()
                 @forelse ($notifications as $notification )
                     <li wire:click="markAsRead('{{ $notification['id'] }}')" class="message @if (!$notification->read_at) unread @endif">
                         <a>
-                            <div class="title-message-item">Thông Báo</div>
+                            {{-- <div class="title-message-item">Thông Báo</div> --}}
                             <div class="content-message-item">{{ $notification->data['name'] }} vừa
-                                trả lời
-                                bình luận của bạn.
+                                {{ $notification->data['message'] }}
                             </div>
                             <p class="time"><i class="far fa-clock"></i>{{ $notification->created_at }}
                             </p>

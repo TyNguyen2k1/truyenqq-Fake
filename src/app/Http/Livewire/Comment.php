@@ -67,7 +67,7 @@ class Comment extends Component
         $comment->save();
 
         if ($this->commentReplyingTo->user ?? false != auth()->user() ?? false ) {
-            event(new \App\Events\ReplyComment($comment));
+            event(new \App\Events\ReplyComment($comment, "trả lời bình luận của bạn"));
         }
 
         $this->commentReplyingTo = null;

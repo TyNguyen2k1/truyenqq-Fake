@@ -21,15 +21,17 @@ class ReplyComment
      * @var \App\Models\Comment
      */
     public $comment;
+    public $message;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Comment $comment)
+    public function __construct(Comment $comment, $message)
     {
         $this->comment = $comment;
+        $this->message = $message;
     }
 
     /**

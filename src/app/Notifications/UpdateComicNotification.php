@@ -2,31 +2,25 @@
 
 namespace App\Notifications;
 
-use App\Models\Comment;
+use App\Models\Comic;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
-class NewReplyCommentNotification extends Notification
+class UpdateComicNotification extends Notification
 {
     use Queueable;
-    /**
-     * Comment reply
-     *
-     * @var \App\Models\Comment
-     */
-    public $comment;
-    public $message;
 
+    protected $comic, $message;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(Comment $comment, $message)
+    public function __construct(Comic $comic, $message)
     {
-        $this->comment = $comment;
+        $this->comic = $comic;
         $this->message = $message;
     }
 
@@ -64,10 +58,9 @@ class NewReplyCommentNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'id' => $this->comment->comment_id,
-            'name' => $this->comment->name,
-            'comic_slug' => $this->comment->comic->slug,
-            'message' => $this->message,
+            'id' => $this->comic->id,
+            'name' => $this->comic->name,
+            'message' => $this->message
         ];
     }
 }

@@ -29,6 +29,6 @@ class SendReplyCommentNotification
     public function handle(ReplyComment $event)
     {
         $user = $event->comment->parentsComment->user->get();
-        Notification::send($user, new NewReplyCommentNotification($event->comment));
+        Notification::send($user, new NewReplyCommentNotification($event->comment, $event->message));
     }
 }

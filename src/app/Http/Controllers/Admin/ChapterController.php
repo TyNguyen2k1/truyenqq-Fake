@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChapterRequest;
 use App\Models\Chapter;
 use App\Models\Comic;
+use App\Notifications\UpdateComicNotification;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -46,7 +47,10 @@ class ChapterController extends Controller
             'price' => 50
         ]);
         $comic = Comic::find($request->comic_id);
-
+        $users = $comic->users;
+        foreach ($users as $user) {
+            $user->notify(new UpdateComicNotification($comic, "cập nhật chương mới"));
+        }
         // luu comic_id
         $comic->chapters()->save($chapter);
 
@@ -59,6 +63,7 @@ class ChapterController extends Controller
             $chapter->addMedia($image_item)
                 ->toMediaCollection('chapter');
         }
+
 
         return redirect()->route('admin.chapter.create');
     }
